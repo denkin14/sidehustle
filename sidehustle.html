@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Form</title>
+    <style>
+      input.error {
+        border: 2px solid red;
+      }
+      label.error {
+        color: red;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+      .success {
+        color: green;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Simple Form</h1>
+    <form id="myForm">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label class="error" for="name">Please enter your name</label>
+      </div>
+      <div>
+        <label for="email">Email address:</label>
+        <input type="email" id="email" name="email" required>
+        <label class="error" for="email">Please enter a valid email address</label>
+      </div>
+      <div>
+        <label for="phone">Phone number:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <label class="error" for="phone">Please enter your phone number</label>
+      </div>
+      <div>
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select your gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <label class="error" for="gender">Please select your gender</label>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <label class="error" for="password">Please enter your password</label>
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      
+      </div>
+      
+    </form>
+    <div id="successMsg"></div>
+    <script>
+      const form = document.getElementById("myForm");
+      const successMsg = document.getElementById("successMsg");
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const name = document.getElementById("name");
+        const email = document.getElementById("email");
+        const phone = document.getElementById("phone");
+        const gender = document.getElementById("gender");
+        const password = document.getElementById("password");
+        const submit = document.getElementById("submit");
+
+        if (!name.value) {
+          name.classList.add("error");
+          name.nextElementSibling.style.display = "inline-block";
+          isValid = false;
+        } else {
+          name.classList.remove("error");
+          name.nextElementSibling.style.display = "none";
+        }
+
+        if (!email.checkValidity()) {
+          email.classList.add("error");
+          email.nextElementSibling.style.display = "inline-block";
+          isValid = false;
+        } else {
+          email.classList.remove("error");
+          email.nextElementSibling.style.display = "none";
+        }
+
+        if (!phone.value) {
+          phone.classList.add("error");
+          phone.nextElementSibling.style.display = "inline-block";
+          isValid = false;
+        } else {
+          phone.classList.remove("error");
+          phone.nextElementSibling.style.display = "none";
+        }
+
+        if (!gender.value) {
+          gender.classList.add("error");
+          gender.nextElementSibling.style.display = "inline-block";
+          isValid = false;
+        
+        if (!password.value) {
+          password.classList.add("error");
+          password.nextElementSibling.style.display = "inline-block";
+          isValid = false;
+        } else {
+          password.classList.remove("error");
+          password.nextElementSibling.style.display = "none";
+        }
+
+        if (submit = true) {
+          // If all inputs are valid, display success message and clear the form
+          successMsg.textContent = "Form submitted successfully!";
+          successMsg.classList.add("success");
+          
+        } else {
+          successMsg.textContent = "unsuccessful!";
+          form.reset();
+        };
+      
+
+
+
+
+
+  
